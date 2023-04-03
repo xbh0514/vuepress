@@ -1,7 +1,8 @@
 {
   "scripts": {
     "dev": "vuepress dev docs --temp .temp",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
   },
   "dependencies": {
     "vue-template-compiler": "^2.7.14"
