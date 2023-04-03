@@ -1,6 +1,27 @@
 {
-    "scripts": {
-      "dev": "vuepress dev docs",
-      "build": "vuepress build docs"
-    }
-  }
+  "scripts": {
+    "dev": "vuepress dev docs --temp .temp",
+    "build": "vuepress build docs"
+  },
+  "dependencies": {
+    "vue-template-compiler": "^2.7.14"
+  },
+  "name": "vuepress",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiebeihao/VuePress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiebeihao/VuePress/issues"
+  },
+  "homepage": "https://github.com/xiebeihao/VuePress#readme"
+}
