@@ -1,3 +1,5 @@
+ls
+
 # 构建
 vuepress build docs
 
