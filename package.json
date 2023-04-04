@@ -1,28 +1,26 @@
 {
+  "name": "vuepress-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev docs --temp .temp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "dep": "bash deploy.sh"
   },
-  "dependencies": {
-    "vue-template-compiler": "^2.7.14"
-  },
-  "name": "vuepress",
-  "description": "",
-  "version": "1.0.0",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xiebeihao/VuePress.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/xiebeihao/VuePress/issues"
-  },
-  "homepage": "https://github.com/xiebeihao/VuePress#readme"
+  "devDependencies": {
+    "@vuepress/client": "2.0.0-beta.61",
+    "@vuepress/plugin-back-to-top": "2.0.0-beta.61",
+    "@vuepress/plugin-external-link-icon": "2.0.0-beta.61",
+    "@vuepress/plugin-medium-zoom": "2.0.0-beta.61",
+    "@vuepress/plugin-nprogress": "2.0.0-beta.61",
+    "@vuepress/plugin-register-components": "2.0.0-beta.61",
+    "@vuepress/plugin-search": "2.0.0-beta.61",
+    "vue": "^3.2.47",
+    "vuepress": "2.0.0-beta.61"
+  }
 }

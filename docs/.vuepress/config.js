@@ -1,47 +1,67 @@
-module.exports = {
-	base:'/vuepress/',
-	title: "小豪云上解忧铺",
-	description: "解决前端疑难杂症",
-	themeConfig: {
-		
-		// 假定 GitHub。也可以是一个完整的 GitLab 网址
-		// repo: 'https://github.com/xiebeihao/VuePress',
-		// 如果你的文档不在仓库的根部
-		// docsDir: 'docs',
-		// 可选，默认为 master
-		docsBranch: 'gh-pages',
-		// 默认为 true，设置为 false 来禁用
-		lastUpdated: '更新时间',
-		editLinks: true,
-		nav: [
-			{ text: "首页", link: "/" },
-			{ text: "目录", link: "/container/" },
-		],
-		sidebar: [
-			{
-				title: "JavaScript",
-				collapsable: false,
-				children: [
-					{
-						title: "变量",
-					},
-					{
-						title: "数组",
-					},
-				],
+/** @format */
+
+import { defineUserConfig } from "vuepress"
+// 返回顶部插件
+import { backToTopPlugin } from "@vuepress/plugin-back-to-top"
+// 搜索插件
+import { searchPlugin } from "@vuepress/plugin-search"
+// icon
+import { externalLinkIconPlugin } from "@vuepress/plugin-external-link-icon"
+// 图片缩放功能
+import { mediumZoomPlugin } from "@vuepress/plugin-medium-zoom"
+// 切换页面进入条
+import { nprogressPlugin } from "@vuepress/plugin-nprogress"
+// 根据组件文件或目录自动注册 Vue 组件
+import { registerComponentsPlugin } from "@vuepress/plugin-register-components"
+
+import { getDirname, path } from '@vuepress/utils'
+
+const __dirname = getDirname(import.meta.url)
+
+export default defineUserConfig({
+	debug: true,
+	open: false,
+	base: "/vuepress/",
+	lang: "zh-CN",
+	title: "VuePress ！",
+	description: "这是我的第一个 VuePress 站点",
+	plugins: [
+		// 返回顶部
+		backToTopPlugin(),
+		// 搜索功能
+		searchPlugin({
+			// 排除首页
+			isSearchable: page => page.path !== "/",
+			// 配置项
+			locales: {
+				"/": {
+					placeholder: "搜索",
+				},
+				"/zh/": {
+					placeholder: "搜索",
+				},
 			},
-			{
-				title: "Vue2",
-				children: [
-					/* ... */
-				],
+		}),
+		// icon
+		externalLinkIconPlugin({
+			// 配置项
+			"/": {
+				openInNewWindow: "在新窗口打开",
 			},
-			{
-				title: "PHP",
-				children: [
-					/* ... */
-				],
+			"/zh/": {
+				openInNewWindow: "在新窗口打开",
 			},
-		],
-	},
-};
+		}),
+		// 图片缩放
+		mediumZoomPlugin({
+			// 配置项
+		}),
+		// 页面切换进度条
+		nprogressPlugin(),
+		// 根据组件文件或目录自动注册 Vue 组件
+		registerComponentsPlugin({
+			// 配置项
+            componentsDir: path.resolve(__dirname, './components'),
+		}),
+	],
+})

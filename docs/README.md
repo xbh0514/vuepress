@@ -1,7 +1,6 @@
 ---
-home: true
-# heroImage: /hero.png
-actionText: 开始 →
-actionLink: /container/
-# footer: MIT Licensed | Copyright © 2018-present Evan You
+lang: zh-CN
+sidebar: false
+title: 页面标题
+description: 页面描述
 ---
