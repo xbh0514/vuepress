@@ -11,6 +11,7 @@ module.exports = {
 		// 可选，默认为 master
 		docsBranch: 'gh-pages',
 		// 默认为 true，设置为 false 来禁用
+		lastUpdated: '更新时间',
 		editLinks: true,
 		nav: [
 			{ text: "首页", link: "/" },
