@@ -7,7 +7,7 @@ console.log(pages)
 </script>
 
 <template>
-	<img class="bg-img" src="img/bg.jpg" alt="" />
+	<img class="bg-img" src="../public/img/bg.jpg" alt="" />
 </template>
 
 <style lang="css">

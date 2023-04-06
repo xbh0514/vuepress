@@ -40,11 +40,23 @@ export default defineUserConfig({
 		// 在这里进行配置
 		lastUpdatedText: "更新时间：",
 		contributorsText: "更新人：",
+		navbar: [
+			// NavbarItem
+			{
+			  text: 'Foo',
+			  link: '/foo/',
+			},
+			// NavbarGroup
+			{
+			  text: 'Group',
+			  children: ['/group/foo.md', '/group/bar.md'],
+			},
+		  ],
 	}),
 	
 	debug: true,
 	open: false,
-	// base: "/vuepress/",
+	base: "/vuepress/",
 	lang: "zh-CN",
 	title: "VuePress ！",
 	description: "这是我的第一个 VuePress 站点",
