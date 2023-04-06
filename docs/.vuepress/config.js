@@ -28,7 +28,21 @@ import { gitPlugin } from "@vuepress/plugin-git"
 import { palettePlugin } from "@vuepress/plugin-palette"
 // git pages
 import { usePagesPlugin } from "vuepress-plugin-use-pages"
+//导入生成侧边栏的工具类
+import { sideBarTool } from "./utils/index"
 
+// 需要排除的一些目录
+let unDirIncludes = ["node_modules", "assets", "public", "dist", "components"]
+// 只需要处理后缀的文件类型
+let SuffixIncludes = ["md", "html"]
+//使用方法生生成侧边栏
+// let rootPath = path.dirname()
+// let rootPath = getDirname(import.meta.url)
+let rootPath = path.dirname(__dirname)+'/'
+console.log("rootPath----------------------",rootPath);
+// 侧边栏
+let sidebar = sideBarTool.genSideBarGroup(rootPath, unDirIncludes, SuffixIncludes, {})
+console.log("sidebar--------------------------", sidebar)
 
 export default defineUserConfig({
 	alias: {
@@ -43,17 +57,18 @@ export default defineUserConfig({
 		navbar: [
 			// NavbarItem
 			{
-			  text: 'Foo',
-			  link: '/foo/',
+				text: "articles",
+				link: "/articles/",
 			},
 			// NavbarGroup
 			{
-			  text: 'Group',
-			  children: ['/group/foo.md', '/group/bar.md'],
+				text: "Group",
+				children: ["/group/foo.md", "/group/bar.md"],
 			},
-		  ],
+		],
+		sidebar: sidebar
 	}),
-	
+
 	debug: true,
 	open: false,
 	base: "/vuepress/",
