@@ -14,17 +14,32 @@ import { nprogressPlugin } from "@vuepress/plugin-nprogress"
 // 根据组件文件或目录自动注册 Vue 组件
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components"
 
-import { getDirname, path } from '@vuepress/utils'
+import { getDirname, path } from "@vuepress/utils"
 
 const __dirname = getDirname(import.meta.url)
 
+import { defaultTheme } from "@vuepress/theme-default"
+
+// git
+import { gitPlugin } from "@vuepress/plugin-git"
+// 调色板
+import { palettePlugin } from "@vuepress/plugin-palette"
+// git pages
+import { usePagesPlugin } from "vuepress-plugin-use-pages"
+
 export default defineUserConfig({
+	theme: defaultTheme({
+		// 在这里进行配置
+		lastUpdatedText: "更新时间：",
+		contributorsText: "更新人：",
+	}),
 	debug: true,
 	open: false,
 	base: "/vuepress/",
 	lang: "zh-CN",
 	title: "VuePress ！",
 	description: "这是我的第一个 VuePress 站点",
+
 	plugins: [
 		// 返回顶部
 		backToTopPlugin(),
@@ -61,7 +76,21 @@ export default defineUserConfig({
 		// 根据组件文件或目录自动注册 Vue 组件
 		registerComponentsPlugin({
 			// 配置项
-            componentsDir: path.resolve(__dirname, './components'),
+			componentsDir: path.resolve(__dirname, "./components"),
+		}),
+		gitPlugin({
+			// 配置项
+		}),
+		palettePlugin({
+			// 配置项
+		}),
+		usePagesPlugin({
+			// 配置项
+			startsWith: "/articles/", // fetch only matched paths
+			filter: page => page.data.lang === "ja", // fetch only filtered pages
+			sort: (a, b) => b.data.git.updatedTime - a.data.git.updatedTime,
+			limit: 20, // maximum cached size
+			file: "articles.js",
 		}),
 	],
 })
