@@ -1,5 +1,7 @@
 /** @format */
 
+import { viteBundler } from "vuepress"
+
 import { defineUserConfig } from "vuepress"
 // 返回顶部插件
 import { backToTopPlugin } from "@vuepress/plugin-back-to-top"
@@ -27,15 +29,22 @@ import { palettePlugin } from "@vuepress/plugin-palette"
 // git pages
 import { usePagesPlugin } from "vuepress-plugin-use-pages"
 
+
 export default defineUserConfig({
+	alias: {
+		// '@theme/HomeFooter.vue': path.resolve(__dirname, './components/MyHomeFooter.vue'),
+		// "@theme/HomeHero.vue": path.resolve(__dirname, "./components/MyHomeContent.vue"),
+	},
+	bundler: viteBundler(),
 	theme: defaultTheme({
 		// 在这里进行配置
 		lastUpdatedText: "更新时间：",
 		contributorsText: "更新人：",
 	}),
+	
 	debug: true,
 	open: false,
-	base: "/vuepress/",
+	// base: "/vuepress/",
 	lang: "zh-CN",
 	title: "VuePress ！",
 	description: "这是我的第一个 VuePress 站点",
@@ -68,9 +77,9 @@ export default defineUserConfig({
 			},
 		}),
 		// 图片缩放
-		mediumZoomPlugin({
-			// 配置项
-		}),
+		// mediumZoomPlugin({
+		// 	// 配置项
+		// }),
 		// 页面切换进度条
 		nprogressPlugin(),
 		// 根据组件文件或目录自动注册 Vue 组件

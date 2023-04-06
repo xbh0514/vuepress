@@ -1,10 +1,12 @@
 /** @format */
 
 import { defineClientConfig } from "@vuepress/client"
-import Layout from "./layouts/Layout.vue"
+import MyHomeContent from './components/MyHomeContent.vue'
 
 export default defineClientConfig({
-	layouts: {
-		Layout,
+	enhance({ app, router, siteData }) {
+		app.component('MyHomeContent', MyHomeContent)
 	},
+	setup() {},
+	rootComponents: [],
 })
