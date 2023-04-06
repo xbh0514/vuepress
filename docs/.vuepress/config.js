@@ -87,7 +87,7 @@ export default defineUserConfig({
 		usePagesPlugin({
 			// 配置项
 			startsWith: "/articles/", // fetch only matched paths
-			filter: page => page.data.lang === "ja", // fetch only filtered pages
+			// filter: page => page.data.lang === "zh-CN", // fetch only filtered pages
 			sort: (a, b) => b.data.git.updatedTime - a.data.git.updatedTime,
 			limit: 20, // maximum cached size
 			file: "articles.js",
