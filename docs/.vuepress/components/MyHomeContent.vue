@@ -2,6 +2,7 @@
 
 <script setup>
 import { usePages } from "@temp/articles"
+// import { sideBarTool } from "../utils/index.js"
 const pages = usePages()
 console.log(pages)
 </script>

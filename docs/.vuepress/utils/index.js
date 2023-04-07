@@ -136,7 +136,6 @@ const sideBarTool = {
 			let dirFiles = filehelper.getAllFiles(item, unDirIncludes, SuffixIncludes)
 			let dirname = item.replace(RootPath, "")
 			dirname = dirname.replace(/\\/g, "/")
-			console.log("dirname-----------------",dirname);
 			if (dirFiles.length > 0) {
 				sidebars[dirname] = dirFiles
 			}
@@ -189,7 +188,10 @@ const sideBarTool = {
 				title = arr[arr.length-1]
 			}
 			if (children.length > 1) {
-				children = children.flatMap((vo, idx) => [[vo]])
+				children = children.flatMap((vo, idx) => {
+					console.log(vo,idx);
+					return [vo]
+				})
 			}
 			let Obj = {
 				title,
@@ -198,6 +200,10 @@ const sideBarTool = {
 				children: children.length > 1 ? children : [dirname.replace(/\\/g, "/")],
 			}
 			sidebars.push(Obj)
+		})
+		sidebars.map(item=>{
+			
+			console.log("item---------------",item);
 		})
 		return sidebars
 	},

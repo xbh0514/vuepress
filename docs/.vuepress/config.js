@@ -10,7 +10,7 @@ import { searchPlugin } from "@vuepress/plugin-search"
 // icon
 import { externalLinkIconPlugin } from "@vuepress/plugin-external-link-icon"
 // 图片缩放功能
-import { mediumZoomPlugin } from "@vuepress/plugin-medium-zoom"
+// import { mediumZoomPlugin } from "@vuepress/plugin-medium-zoom"
 // 切换页面进入条
 import { nprogressPlugin } from "@vuepress/plugin-nprogress"
 // 根据组件文件或目录自动注册 Vue 组件
@@ -29,20 +29,19 @@ import { palettePlugin } from "@vuepress/plugin-palette"
 // git pages
 import { usePagesPlugin } from "vuepress-plugin-use-pages"
 //导入生成侧边栏的工具类
-import { sideBarTool } from "./utils/index"
+import sideBarTool from "./utils/sidebar"
 
 // 需要排除的一些目录
-let unDirIncludes = ["node_modules", "assets", "public", "dist", "components"]
+let unDirIncludes = ["node_modules", "assets", "public", "dist", "components",".vuepress"]
 // 只需要处理后缀的文件类型
 let SuffixIncludes = ["md", "html"]
 //使用方法生生成侧边栏
 // let rootPath = path.dirname()
 // let rootPath = getDirname(import.meta.url)
-let rootPath = path.dirname(__dirname)+'/'
-console.log("rootPath----------------------",rootPath);
+let rootPath = path.dirname(__dirname)
 // 侧边栏
 let sidebar = sideBarTool.genSideBarGroup(rootPath, unDirIncludes, SuffixIncludes, {})
-console.log("sidebar--------------------------", sidebar)
+console.log("sidebar----------------",sidebar);
 
 export default defineUserConfig({
 	alias: {
@@ -73,8 +72,8 @@ export default defineUserConfig({
 	open: false,
 	base: "/vuepress/",
 	lang: "zh-CN",
-	title: "VuePress ！",
-	description: "这是我的第一个 VuePress 站点",
+	title: "XPlugin",
+	description: "XPlugin",
 
 	plugins: [
 		// 返回顶部
